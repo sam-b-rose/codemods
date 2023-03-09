@@ -1,6 +1,6 @@
-# codeshift-community
+# Codemods
 
-This project was bootstrapped with [CodeshiftCommunity 🚚](https://www.codeshiftcommunity.com/). Please see the [external packages guide](https://www.codeshiftcommunity.com/docs/external-packages) for more information on how to work with this repo.
+This project is a test project bootstrapped with [CodeshiftCommunity 🚚](https://www.codeshiftcommunity.com/). Please see the [external packages guide](https://www.codeshiftcommunity.com/docs/external-packages) for more information on how to work with this repo.
 
 ![CodeshiftCommunity logo](https://www.codeshiftcommunity.com/img/logo.svg)
 
