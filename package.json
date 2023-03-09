@@ -2,7 +2,7 @@
   "name": "@samrose3/codemods",
   "version": "0.1.0",
   "license": "MIT",
-  "main": "dist/codeshift.config.js",
+  "main": "codeshift.config.js",
   "scripts": {
     "dev": "codeshift",
     "build": "tsc --build",
