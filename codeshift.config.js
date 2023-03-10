@@ -1,5 +1,8 @@
 module.exports = {
+  transforms: {
+    'v9-scss-replace-border-radius': require.resolve('./codemods/v9-scss-replace-border-radius/transform')
+  },
   presets: {
-    'react-rename-component-prop': require.resolve('./dist/codemods/react-rename-component-prop/transform'),
+    'react-rename-component-prop': require.resolve('./codemods/react-rename-component-prop/transform'),
   },
 };
