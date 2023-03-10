@@ -1,5 +1,4 @@
-src/
-codemods/
+dist
 **/__test__
 **/*.spec.(ts|js)
 .vscode
