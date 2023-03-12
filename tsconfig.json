@@ -1,8 +1,12 @@
 {
-  "include": ["codemods/**/*"],
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "include": ["."],
   "compilerOptions": {
-    "outDir": "dist",
+    "strict": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "forceConsistentCasingInFileNames": true,
     "allowJs": true,
     "types": ["jest", "node"]
   }

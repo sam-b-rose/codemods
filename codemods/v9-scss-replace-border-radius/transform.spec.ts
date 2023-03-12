@@ -1,5 +1,5 @@
-import {check} from '../../utils/check';
-import transformer from './transform';
+import { check } from '../../utils/check'
+import transformer from './transform'
 
 describe('v9-scss-replace-border-radius transform', () => {
   check({
@@ -46,7 +46,7 @@ describe('v9-scss-replace-border-radius transform', () => {
       border-top-right-radius: border-radius() * rem(4px);
     }
   `,
-  });
+  })
 
   check({
     transformer,
@@ -103,5 +103,5 @@ describe('v9-scss-replace-border-radius transform', () => {
         legacy-polaris-v8.rem(4px);
     }
   `,
-  });
-});
+  })
+})

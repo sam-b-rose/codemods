@@ -1,8 +1,8 @@
-import type {FileInfo, API, Options} from 'jscodeshift';
-import postcss, {Plugin} from 'postcss';
-import valueParser from 'postcss-value-parser';
+import type { FileInfo, API, Options } from 'jscodeshift'
+import postcss, { Plugin } from 'postcss'
+import valueParser from 'postcss-value-parser'
 
-import {POLARIS_MIGRATOR_COMMENT} from '../../utils/constants';
+import { POLARIS_MIGRATOR_COMMENT } from '../../utils/constants'
 import {
   getFunctionArgs,
   isNumericOperator,
@@ -11,8 +11,8 @@ import {
   NamespaceOptions,
   StopWalkingFunctionNodes,
   createInlineComment,
-} from '../../utils/scss';
-import {isKeyOf} from '../../utils/type-guards';
+} from '../../utils/scss'
+import { isKeyOf } from '../../utils/type-guards'
 
 export default function v9ScssReplaceBorderRadius(
   fileInfo: FileInfo,
@@ -21,22 +21,23 @@ export default function v9ScssReplaceBorderRadius(
 ) {
   return postcss(plugin(options)).process(fileInfo.source, {
     syntax: require('postcss-scss'),
-  }).css;
+  }).css
 }
 
-const processed = Symbol('processed');
+const processed = Symbol('processed')
 
 interface PluginOptions extends Options, NamespaceOptions {}
 
 const plugin = (options: PluginOptions = {}): Plugin => {
-  const namespacedBorderRadius = namespace('border-radius', options);
+  const namespacedBorderRadius = namespace('border-radius', options)
 
   return {
     postcssPlugin: 'v9-scss-replace-border-radius',
     Declaration(decl) {
-      if (decl[processed]) return;
+      // @ts-ignore
+      if (decl[processed]) return
 
-      if (!borderRadiusProps.has(decl.prop)) return;
+      if (!borderRadiusProps.has(decl.prop)) return
 
       /**
        * A collection of transformable values to migrate (e.g. decl lengths, functions, etc.)
@@ -44,20 +45,20 @@ const plugin = (options: PluginOptions = {}): Plugin => {
        * Note: This is evaluated at the end of each visitor execution to determine whether
        * or not to replace the declaration or insert a comment.
        */
-      const targets: {replaced: boolean}[] = [];
-      let hasNumericOperator = false;
-      const parsedValue = valueParser(decl.value);
+      const targets: { replaced: boolean }[] = []
+      let hasNumericOperator = false
+      const parsedValue = valueParser(decl.value)
 
-      handleBorderRadiusProps();
+      handleBorderRadiusProps()
 
-      if (targets.some(({replaced}) => !replaced || hasNumericOperator)) {
+      if (targets.some(({ replaced }) => !replaced || hasNumericOperator)) {
         // Insert comment if the declaration value contains calculations
-        decl.before(createInlineComment(POLARIS_MIGRATOR_COMMENT));
+        decl.before(createInlineComment(POLARIS_MIGRATOR_COMMENT))
         decl.before(
           createInlineComment(`${decl.prop}: ${parsedValue.toString()};`),
-        );
+        )
       } else {
-        decl.value = parsedValue.toString();
+        decl.value = parsedValue.toString()
       }
 
       //
@@ -67,25 +68,25 @@ const plugin = (options: PluginOptions = {}): Plugin => {
       function handleBorderRadiusProps() {
         parsedValue.walk((node) => {
           if (isNumericOperator(node)) {
-            hasNumericOperator = true;
-            return;
+            hasNumericOperator = true
+            return
           }
 
           if (node.type === 'function') {
             if (isSassFunction(namespacedBorderRadius, node)) {
-              targets.push({replaced: false});
+              targets.push({ replaced: false })
 
-              const args = getFunctionArgs(node);
+              const args = getFunctionArgs(node)
 
-              if (!(args.length === 0 || args.length === 1)) return;
+              if (!(args.length === 0 || args.length === 1)) return
 
               // `border-radius()` args reference:
               // https://github.com/shopify/polaris/blob/2b14c0b60097f75d21df7eaa744dfaf84f8f53f7/documentation/guides/legacy-polaris-v8-public-api.scss#L655
-              const value = args[0] ?? 'base';
+              const value = args[0] ?? 'base'
 
-              if (!isKeyOf(borderRadiusFunctionMap, value)) return;
+              if (!isKeyOf(borderRadiusFunctionMap, value)) return
 
-              node.value = 'var';
+              node.value = 'var'
               node.nodes = [
                 {
                   type: 'word',
@@ -93,18 +94,18 @@ const plugin = (options: PluginOptions = {}): Plugin => {
                   sourceIndex: node.nodes[0]?.sourceIndex ?? 0,
                   sourceEndIndex: borderRadiusFunctionMap[value].length,
                 },
-              ];
+              ]
 
-              targets[targets.length - 1]!.replaced = true;
+              targets[targets.length - 1]!.replaced = true
             }
 
-            return StopWalkingFunctionNodes;
+            return StopWalkingFunctionNodes
           }
-        });
+        })
       }
     },
-  };
-};
+  }
+}
 
 const borderRadiusProps = new Set([
   'border-radius',
@@ -112,7 +113,7 @@ const borderRadiusProps = new Set([
   'border-top-right-radius',
   'border-bottom-left-radius',
   'border-bottom-right-radius',
-]);
+])
 
 const borderRadiusFunctionMap = {
   '': '--p-border-radius-base',
@@ -120,4 +121,4 @@ const borderRadiusFunctionMap = {
   "'base'": '--p-border-radius-base',
   large: '--p-border-radius-large',
   "'large'": '--p-border-radius-large',
-} as const;
+} as const
