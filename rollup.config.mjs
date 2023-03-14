@@ -4,7 +4,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import { globby } from 'globby'
 
 const extensions = ['.ts']
-const transformPaths = await globby('./(codemods|utils)/**/!(*.spec).ts')
+const transformPaths = await globby('./src/**/!(*.spec).ts')
 
 /** @type {import('rollup').RollupOptions} */
 export default {
@@ -24,7 +24,7 @@ export default {
     babel({
       extensions,
       presets: ['@babel/preset-env', '@babel/preset-typescript'],
-      include: ['(codemods|utils)/**/*', 'codeshift.config.ts'],
+      include: ['src/**/*', 'codeshift.config.ts'],
       babelHelpers: 'bundled',
       envName: 'production',
       targets: 'node 16.13',

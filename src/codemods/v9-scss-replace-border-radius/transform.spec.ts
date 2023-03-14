@@ -1,4 +1,4 @@
-import { check } from '../../testUtils/check'
+import { check } from '../../../testUtils/check'
 import transformer from './transform'
 
 describe('v9-scss-replace-border-radius transform', () => {

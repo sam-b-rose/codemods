@@ -1,4 +1,4 @@
-import { check } from '../../testUtils/check'
+import { check } from '../../../testUtils/check'
 import transformer from './transform'
 
 describe('react-rename-component-prop transform', () => {

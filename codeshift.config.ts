@@ -1,12 +1,12 @@
 export default {
   transforms: {
     'v9-scss-replace-border-radius': require.resolve(
-      './codemods/v9-scss-replace-border-radius/transform.ts',
+      './src/codemods/v9-scss-replace-border-radius/transform',
     ),
   },
   presets: {
     'react-rename-component-prop': require.resolve(
-      './codemods/react-rename-component-prop/transform.ts',
+      './src/codemods/react-rename-component-prop/transform',
     ),
   },
 }
