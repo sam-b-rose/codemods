@@ -12,7 +12,7 @@ import {
   StopWalkingFunctionNodes,
   createInlineComment,
 } from '../../utils/scss'
-import { isKeyOf } from '../../utils/type-guards'
+import { isKeyOf } from '../../utils/types'
 
 export default function v9ScssReplaceBorderRadius(
   fileInfo: FileInfo,

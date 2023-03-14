@@ -10,7 +10,7 @@ const transformPaths = await globby('./src/**/!(*.spec).ts')
 export default {
   input: [...transformPaths, 'codeshift.config.ts'],
   output: {
-    format: 'cjs',
+    format: 'esm',
     dir: 'dist',
     preserveModules: true,
     exports: 'auto',
