@@ -1,6 +1,6 @@
 **/*.spec.(ts|js)
-src
-testUtils
+./src
+./testUtils
 .prettierignore
 .prettierrc.json
 codeshift.config.ts
