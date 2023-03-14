@@ -1,5 +1,6 @@
 import type { FileInfo, API, Options } from 'jscodeshift'
 import postcss, { Plugin } from 'postcss'
+import postCssScss from 'postcss-scss'
 import valueParser from 'postcss-value-parser'
 
 import { POLARIS_MIGRATOR_COMMENT } from '../../utils/constants'
@@ -20,7 +21,7 @@ export default function v9ScssReplaceBorderRadius(
   options: Options,
 ) {
   return postcss(plugin(options)).process(fileInfo.source, {
-    syntax: require('postcss-scss'),
+    syntax: postCssScss,
   }).css
 }
 
