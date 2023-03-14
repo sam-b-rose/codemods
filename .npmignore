@@ -1,5 +1,9 @@
-dist
-**/__test__
 **/*.spec.(ts|js)
-.vscode
+src
+testUtils
+.prettierignore
+.prettierrc.json
+codeshift.config.ts
 jest.config.js
+rollup.config.mjs
+tsconfig.json
