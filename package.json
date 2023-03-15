@@ -15,14 +15,14 @@
     "validate": "codeshift validate ."
   },
   "dependencies": {
-    "@babel/core": "7.21.0",
-    "@babel/preset-env": "^7.20.2",
     "@shopify/polaris-tokens": "^6.8.0",
     "postcss": "^8.4.21",
     "postcss-scss": "^4.0.6",
     "postcss-value-parser": "^4.2.0"
   },
   "devDependencies": {
+    "@babel/core": "7.21.0",
+    "@babel/preset-env": "^7.20.2",
     "@babel/preset-typescript": "^7.21.0",
     "@codeshift/cli": "0.12.0",
     "@rollup/plugin-babel": "^6.0.3",
