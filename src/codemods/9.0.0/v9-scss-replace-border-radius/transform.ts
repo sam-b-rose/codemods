@@ -3,7 +3,7 @@ import postcss, { Plugin } from 'postcss'
 import postCssScss from 'postcss-scss'
 import valueParser from 'postcss-value-parser'
 
-import { POLARIS_MIGRATOR_COMMENT } from '../../utils/constants'
+import { POLARIS_MIGRATOR_COMMENT } from '../../../utils/constants'
 import {
   getFunctionArgs,
   isNumericOperator,
@@ -12,8 +12,8 @@ import {
   NamespaceOptions,
   StopWalkingFunctionNodes,
   createInlineComment,
-} from '../../utils/scss'
-import { isKeyOf } from '../../utils/types'
+} from '../../../utils/scss'
+import { isKeyOf } from '../../../utils/types'
 
 export default function v9ScssReplaceBorderRadius(
   fileInfo: FileInfo,

@@ -1,5 +1,5 @@
 import type { API, FileInfo, Options } from 'jscodeshift'
-import { renameProps } from '../../utils/jsx'
+import { renameProps } from '../../../utils/jsx'
 
 export default function transformer(
   file: FileInfo,
