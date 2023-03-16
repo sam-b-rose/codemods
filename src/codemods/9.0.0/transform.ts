@@ -2,7 +2,7 @@ import type { FileInfo, API, Options } from 'jscodeshift'
 
 import v9ScssReplaceBorderRadius from './v9-scss-replace-border-radius/transform'
 
-export default function v9_0_0(
+export default function transform(
   fileInfo: FileInfo,
   api: API,
   options: Options,

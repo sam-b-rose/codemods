@@ -15,7 +15,7 @@ import {
 } from '../../../utils/scss'
 import { isKeyOf } from '../../../utils/types'
 
-export default function v9ScssReplaceBorderRadius(
+export default function transform(
   fileInfo: FileInfo,
   _: API,
   options: Options,
