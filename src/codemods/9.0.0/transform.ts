@@ -7,8 +7,8 @@ export default function transform(
   api: API,
   options: Options,
 ) {
-  const transforms = [v9ScssReplaceBorderRadius];
+  const transforms = [v9ScssReplaceBorderRadius]
   return transforms.reduce((source, transform) => {
-    return transform({ ...fileInfo, source }, api, options);
-  }, fileInfo.source);
+    return transform({ ...fileInfo, source }, api, options)
+  }, fileInfo.source)
 }
