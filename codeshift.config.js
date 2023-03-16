@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   transforms: {
     'v9-scss-replace-border-radius': require.resolve(
       './src/codemods/v9-scss-replace-border-radius/transform',

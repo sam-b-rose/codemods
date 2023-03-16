@@ -2,14 +2,11 @@
   "name": "@samrose3/codemods",
   "version": "0.4.7",
   "license": "MIT",
-  "main": "dist/codeshift.config.js",
+  "main": "codeshift.config.js",
   "scripts": {
     "dev": "codeshift",
-    "build": "rollup -c",
-    "clean": "rimraf dist",
     "format": "prettier --write --cache .",
     "lint": "prettier --check .",
-    "prepublish": "npm run clean && npm run build",
     "test": "jest --watch",
     "typecheck": "tsc -p . --noEmit",
     "validate": "codeshift validate ."
