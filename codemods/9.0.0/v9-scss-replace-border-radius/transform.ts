@@ -26,7 +26,8 @@ export default function transform(
   }).css
 }
 
-transform.options = {
+export const extensions = ['css', 'scss']
+export const options = {
   namespace: {
     name: 'namespace',
     type: 'string',

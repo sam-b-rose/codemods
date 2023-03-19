@@ -1,3 +1,6 @@
+import { createRequire } from 'node:module'
+const require = createRequire(import.meta.url)
+
 export default {
   transforms: {
     '9.0.0': require.resolve('./dist/codemods/9.0.0/transform.js'),

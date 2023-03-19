@@ -13,8 +13,8 @@ export default function transform(
   }, fileInfo.source)
 }
 
-transform.extensions = ['css', 'scss']
-transform.options = {
+export const extensions = ['css', 'scss']
+export const options = {
   namespace: {
     name: 'namespace',
     type: 'string',
