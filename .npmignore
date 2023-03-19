@@ -1,8 +1,0 @@
-./codemods
-./test
-./utils
-.prettierignore
-jest.config.js
-pnpm-lock.yaml
-tsconfig.build.json
-tsconfig.json

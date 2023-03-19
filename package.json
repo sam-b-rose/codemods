@@ -4,6 +4,7 @@
   "license": "MIT",
   "type": "module",
   "main": "codeshift.config.js",
+  "files":["dist"],
   "scripts": {
     "dev": "codeshift",
     "build": "tsc --build tsconfig.build.json",
