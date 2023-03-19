@@ -13,6 +13,7 @@
     "clean": "rimraf dist",
     "format": "prettier --write --cache .",
     "lint": "prettier --check .",
+    "prepublishOnly": "pnpm clean && pnpm build",
     "test": "jest --watch",
     "typecheck": "tsc -p . --noEmit",
     "validate": "codeshift validate ."
