@@ -1,7 +1,6 @@
-**/*.spec.(ts|js)
-./codemods
-./test
-./utils
+codemods
+test
+utils
 .prettierignore
 jest.config.js
 pnpm-lock.yaml
