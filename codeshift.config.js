@@ -1,16 +1,13 @@
-import { createRequire } from 'node:module'
-const require = createRequire(import.meta.url)
-
-export default {
+module.exports = {
   transforms: {
-    '9.0.0': require.resolve('./dist/codemods/9.0.0/transform.js'),
+    '9.0.0': require.resolve('./dist/codemods/9.0.0/transform'),
   },
   presets: {
     'v9-scss-replace-border-radius': require.resolve(
-      './dist/codemods/9.0.0/v9-scss-replace-border-radius/transform.js',
+      './dist/codemods/9.0.0/v9-scss-replace-border-radius/transform',
     ),
     'react-rename-component-prop': require.resolve(
-      './dist/codemods/presets/react-rename-component-prop/transform.js',
+      './dist/codemods/presets/react-rename-component-prop/transform',
     ),
   },
 }

@@ -3,7 +3,7 @@ import postcss, {Plugin} from 'postcss'
 import postCssScss from 'postcss-scss'
 import valueParser from 'postcss-value-parser'
 
-import { POLARIS_MIGRATOR_COMMENT } from '../../../utils/constants.js'
+import { POLARIS_MIGRATOR_COMMENT } from '../../../utils/constants'
 import {
   getFunctionArgs,
   isNumericOperator,
@@ -12,15 +12,14 @@ import {
   NamespaceOptions,
   StopWalkingFunctionNodes,
   createInlineComment,
-} from '../../../utils/scss.js'
-import { isKeyOf } from '../../../utils/types.js'
+} from '../../../utils/scss'
+import { isKeyOf } from '../../../utils/types'
 
 export default function transform(
   fileInfo: FileInfo,
   _: API,
   options: Options,
 ) {
-  //@ts-expect-error - https://github.com/postcss/postcss/pull/1815
   return postcss(plugin(options)).process(fileInfo.source, {
     syntax: postCssScss,
   }).css

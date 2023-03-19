@@ -1,15 +1,6 @@
-export default {
-  extensionsToTreatAsEsm: ['.ts'],
-  moduleNameMapper: {
-    '^(\\.{1,2}/.*)\\.js$': '$1',
-  },
+module.exports = {
   transform: {
-    '^.+\\.m?[tj]sx?$': [
-      'ts-jest',
-      {
-        useESM: true,
-      },
-    ],
+    '^.+\\.m?[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js'],
   testRegex: '^.+\\.spec\\.(tsx|ts|js)$',

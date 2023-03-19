@@ -1,5 +1,5 @@
-import { check } from '../../../test/check.js'
-import transformer from './transform.js'
+import { check } from '../../../test/check'
+import transformer from './transform'
 
 describe('v9-scss-replace-border-radius transform', () => {
   check({
