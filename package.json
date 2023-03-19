@@ -1,6 +1,6 @@
 {
   "name": "@samrose3/codemods",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "license": "MIT",
   "type": "module",
   "main": "codeshift.config.js",
