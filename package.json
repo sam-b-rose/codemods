@@ -2,14 +2,24 @@
   "name": "@samrose3/codemods",
   "version": "0.4.12",
   "license": "MIT",
+  "type": "module",
   "main": "codeshift.config.js",
   "scripts": {
     "dev": "codeshift",
+    "build": "tsc --build tsconfig.build.json",
+    "clean": "rimraf dist",
     "format": "prettier --write --cache .",
     "lint": "prettier --check .",
     "test": "jest --watch",
     "typecheck": "tsc -p . --noEmit",
     "validate": "codeshift validate ."
+  },
+  "prettier": {
+    "semi": false,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "printWidth": 80,
+    "trailingComma": "all"
   },
   "dependencies": {
     "@shopify/polaris-tokens": "^6.8.0",

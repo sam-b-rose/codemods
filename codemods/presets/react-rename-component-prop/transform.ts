@@ -1,5 +1,5 @@
 import type { API, FileInfo, Options } from 'jscodeshift'
-import { renameProps } from '../../../utils/jsx'
+import { renameProps } from '../../../utils/jsx.js'
 
 export default function transform(
   file: FileInfo,
@@ -17,4 +17,23 @@ export default function transform(
   renameProps(j, source, componentName, props)
 
   return source.toSource()
+}
+
+export const extensions = ['js', 'ts', 'jsx', 'tsx']
+export const options = {
+  componentName: {
+    name: 'componentName',
+    type: 'string',
+    description: 'The JSX element to target.',
+  },
+  from: {
+    name: 'from',
+    type: 'string',
+    description: 'The target prop to rename.',
+  },
+  to: {
+    name: 'to',
+    type: 'string',
+    description: 'The desired new prop name.',
+  },
 }

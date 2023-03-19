@@ -1,9 +1,9 @@
 import type { FileInfo, API, Options } from 'jscodeshift'
-import postcss, { Plugin } from 'postcss'
+import postcss, {Plugin} from 'postcss'
 import postCssScss from 'postcss-scss'
 import valueParser from 'postcss-value-parser'
 
-import { POLARIS_MIGRATOR_COMMENT } from '../../../utils/constants'
+import { POLARIS_MIGRATOR_COMMENT } from '../../../utils/constants.js'
 import {
   getFunctionArgs,
   isNumericOperator,
@@ -12,17 +12,26 @@ import {
   NamespaceOptions,
   StopWalkingFunctionNodes,
   createInlineComment,
-} from '../../../utils/scss'
-import { isKeyOf } from '../../../utils/types'
+} from '../../../utils/scss.js'
+import { isKeyOf } from '../../../utils/types.js'
 
 export default function transform(
   fileInfo: FileInfo,
   _: API,
   options: Options,
 ) {
+  //@ts-expect-error - https://github.com/postcss/postcss/pull/1815
   return postcss(plugin(options)).process(fileInfo.source, {
     syntax: postCssScss,
   }).css
+}
+
+transform.options = {
+  namespace: {
+    name: 'namespace',
+    type: 'string',
+    description: 'Provide an optional SCSS module namespace to target.',
+  },
 }
 
 const processed = Symbol('processed')

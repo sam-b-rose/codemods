@@ -18,7 +18,7 @@ import valueParser, {
 } from 'postcss-value-parser'
 import { toPx, getCustomPropertyNames, tokens } from '@shopify/polaris-tokens'
 
-import { POLARIS_MIGRATOR_COMMENT } from './constants'
+import { POLARIS_MIGRATOR_COMMENT } from './constants.js'
 
 const defaultNamespace = ''
 
@@ -434,6 +434,7 @@ function convertStylelintRuleToPostcssProcessor(ruleFn: StylelintRule) {
       },
     }
 
+    // @ts-expect-error - https://github.com/postcss/postcss/pull/1815
     return postcss(plugin).process(fileInfo.source, {
       syntax: require('postcss-scss'),
     }).css

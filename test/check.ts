@@ -7,7 +7,11 @@ interface ParserExtensionMap {
 }
 
 const parserExtensionMap: ParserExtensionMap = {
+  js: 'babel',
+  jsx: 'babel',
+  ts: 'typescript',
   tsx: 'typescript',
+  css: 'css',
   scss: 'scss',
 } as const
 

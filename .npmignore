@@ -1,6 +1,6 @@
 **/*.spec.(ts|js)
 ./testUtils
 .prettierignore
-.prettierrc.json
 jest.config.js
+tsconfig.build.json
 tsconfig.json
